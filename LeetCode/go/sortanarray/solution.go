@@ -31,8 +31,28 @@ func sortArray1(nums []int) []int {
 }
 
 // 快排
+func quickSort(nums []int, left, right int) {
+	if right <= left {
+		return
+	}
+	key := nums[left]
+	i, j := left, right
+	for i < j {
+		for j > i && nums[j] >= key {
+			j--
+		}
+		for i < j && nums[i] <= key {
+			i++
+		}
+		nums[i], nums[j] = nums[j], nums[i]
+	}
+	nums[left], nums[i] = nums[i], nums[left]
+	quickSort(nums, i+1, right)
+	quickSort(nums, left, i-1)
+}
+
 func sortArray2(nums []int) []int {
 	n := len(nums)
-
+	quickSort(nums, 0, n-1)
 	return nums
 }
