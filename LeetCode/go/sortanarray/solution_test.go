@@ -33,4 +33,8 @@ func TestQuickSort(t *testing.T) {
 	nums = []int{5, 1, 1, 2, 0, 0}
 	r = sortArray2(nums)
 	fmt.Println(r)
+
+	nums = []int{2, 3, 5, 7}
+	r = sortArray2(nums)
+	fmt.Println(r)
 }
