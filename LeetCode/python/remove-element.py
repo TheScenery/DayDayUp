@@ -6,15 +6,15 @@ class Solution:
         k = len(nums) - 1
         i = 0
         while i <= k:
-            if nums[i] == val:
-                while k >= 0 and nums[k] == val:
-                    k -= 1
-                if i < k:
-                    temp = nums[i]
-                    nums[i] = nums[k]
-                    nums[k] = temp
-                    k -= 1
-            i += 1
+            if nums[i] != val:
+                i += 1
+            elif nums[k] == val:
+                k -= 1
+            else:
+                nums[i], nums[k] = nums[k], nums[i]
+
+                i += 1
+                k -= 1
 
         return k + 1
 
